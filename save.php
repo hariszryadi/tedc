@@ -1,6 +1,6 @@
 <?php
 
-// var_dump($_REQUEST['nim']);
+session_start();
 
 $conn = mysqli_connect('localhost', 'root', '', 'db_tedc');
 
@@ -15,6 +15,7 @@ $insert = mysqli_query($conn, "INSERT
                                     VALUES ('$nim', '$nama', '$periode', '$kelas', '$prodi')");
 
 if ($insert) {
+    $_SESSION['message'] = 'Data mahasiswa berhasil ditambah.'; 
     header("Location: index.php");
 } else {
     echo "Error: " . mysqli_error($conn);

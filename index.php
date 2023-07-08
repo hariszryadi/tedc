@@ -20,6 +20,9 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
 <body>
     <div class="container">
         <h1 class="mt-3" style="text-align: center;">Daftar Mahasiswa</h1>
+        <?php if (isset($_SESSION['message'])) { ?>
+            <div class="alert alert-success" role="alert"><?= $_SESSION['message']; ?></div>
+        <?php } ?>
         <div class="text-end">
             <a href="insert.php" class="btn btn-primary">Tambah Data</a>
         </div>
@@ -49,12 +52,13 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
                                 <td><?= $fetch_assoc['prodi']; ?></td>
                                 <td>
                                     <a href="edit.php?nim=<?= $fetch_assoc['nim']; ?>" class="btn btn-success btn-sm">Edit</a>
+                                    <a href="delete.php?nim=<?= $fetch_assoc['nim']; ?>" class="btn btn-danger btn-sm">Hapus</a>
                                 </td>
                             </tr>
                 <?php   } 
                     } else { ?>
                         <tr>
-                            <td colspan="6" style="text-align: center;">Tidak ada data</td>
+                            <td colspan="7" style="text-align: center;">Tidak ada data</td>
                         </tr>
                 <?php 
                     } ?>
@@ -63,3 +67,9 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
     </div>
 </body>
 </html>
+
+<?php
+
+session_destroy();
+
+?>

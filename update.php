@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $conn = mysqli_connect('localhost', 'root', '', 'db_tedc');
 
 $nim = $_REQUEST['nim'];
@@ -19,6 +21,7 @@ $update = mysqli_query($conn, "UPDATE
                                     nim='$nim'");
 
 if ($update) {
+    $_SESSION['message'] = 'Data mahasiswa berhasil diubah.'; 
     header("Location: index.php");
 } else {
     echo "Error: " . mysqli_error($conn);

@@ -63,6 +63,12 @@ $prodi = $result['prodi'];
                     <input type="text" class="form-control" id="prodi" name="prodi" value="<?= $prodi; ?>">
                 </div>
             </div>
+            <div class="mb-3 row">
+                <label for="foto" class="col-sm-2 col-form-label">Foto</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" id="foto" name="foto">
+                </div>
+            </div>
     
             <button type="submit" class="btn btn-primary float-end">Simpan</button>
             <a href="index.php" class="btn btn-warning float-end me-2">Kembali</a>

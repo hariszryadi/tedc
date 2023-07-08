@@ -30,6 +30,7 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>Foto</th>
                     <th>NIM</th>
                     <th>Nama Lengkap</th>
                     <th>Periode</th>
@@ -45,6 +46,13 @@ $result = mysqli_query($conn, "SELECT * FROM mahasiswa");
                         while ($fetch_assoc = mysqli_fetch_assoc($result)) { ?>
                             <tr>
                                 <td><?= $i++; ?></td>
+                                <td>
+                                    <?php if($fetch_assoc['foto'] == null) { ?>
+                                        <img src="foto/avatar.png" alt="" class="img-thumbnail" width="50">
+                                    <?php } else { ?>
+                                        <img src="foto/<?= $fetch_assoc['foto']; ?>" alt="" class="img-thumbnail" width="50">
+                                    <?php } ?>
+                                </td>
                                 <td><?= $fetch_assoc['nim']; ?></td>
                                 <td><?= $fetch_assoc['nama']; ?></td>
                                 <td><?= $fetch_assoc['periode']; ?></td>

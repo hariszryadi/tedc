@@ -11,7 +11,7 @@
     <div class="container">
         <h1 class="mt-3" style="text-align: center;">Tambah Mahasiswa</h1>
         
-        <form action="save.php" method="POST">
+        <form action="save.php" method="POST" enctype="multipart/form-data">
             <div class="mb-3 row">
                 <label for="nim" class="col-sm-2 col-form-label">NIM</label>
                 <div class="col-sm-10">
@@ -46,6 +46,12 @@
                 <label for="prodi" class="col-sm-2 col-form-label">Program Studi</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="prodi" name="prodi">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="foto" class="col-sm-2 col-form-label">Foto</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" id="foto" name="foto">
                 </div>
             </div>
     
